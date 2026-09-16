@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Surprise For You 💗</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: "Poppins", sans-serif;
+            color: #604c68;
+
+            background:
+                radial-gradient(circle at top left, #ffe1ed, transparent 35%),
+                radial-gradient(circle at bottom right, #e4d9ff, transparent 35%),
+                #fffaf7;
+        }
+
+        /* Floating hearts */
+
+        .floating-heart {
+            position: fixed;
+            z-index: 0;
+            color: #d88eae;
+            font-size: 30px;
+            opacity: 0.45;
+            pointer-events: none;
+            animation: floating 7s ease-in-out infinite;
+        }
+
+        .heart-one {
+            top: 15%;
+            left: 7%;
+        }
+
+        .heart-two {
+            top: 30%;
+            right: 8%;
+            animation-delay: 2s;
+        }
+
+        .heart-three {
+            bottom: 20%;
+            left: 12%;
+            animation-delay: 4s;
+        }
+
+        .heart-four {
+            bottom: 15%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(15deg);
+                opacity: 0.8;
+            }
+        }
+
+        /* Page system */
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            width: 100%;
+            padding: 35px 18px 85px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pageAppear 0.7s ease;
+        }
+
+        @keyframes pageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-content {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .tiny-title {
+            margin-bottom: 18px;
+            color: #bd6d93;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .main-title {
+            margin-bottom: 20px;
+            color: #714a7b;
+            font-family: "Caveat", cursive;
+            font-size: clamp(58px, 10vw, 110px);
+            line-height: 0.9;
+        }
+
+        .sub-title {
+            margin-bottom: 20px;
+            color: #d0789e;
+            font-family: "Caveat", cursive;
+            font-size: clamp(32px, 6vw, 58px);
+            line-height: 1;
+        }
+
+        .description {
+            max-width: 650px;
+            margin: auto;
+            color: #806d80;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* Buttons */
+
+        .button-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 35px;
+        }
+
+        .next-button,
+        .back-button {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-family: "Poppins", sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .next-button {
+            color: white;
+            background: linear-gradient(135deg, #d984a7, #9d70b4);
+            box-shadow: 0 10px 25px rgba(166, 101, 145, 0.25);
+        }
+
+        .next-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(166, 101, 145, 0.35);
+        }
+
+        .back-button {
+            color: #a45f87;
+            background: transparent;
+            border: 1px solid #d8a1bc;
+        }
+
+        .back-button:hover {
+            background: #fce5ef;
+        }
+
+        /* Page 1 */
+
+        .welcome-card {
+            max-width: 780px;
+            margin: auto;
+            padding: 60px 25px;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 35px;
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: 0 20px 60px rgba(125, 83, 130, 0.12);
+        }
+
+        .gift-icon {
+            margin-bottom: 20px;
+            font-size: 75px;
+            animation: giftBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes giftBounce {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(5deg);
+            }
+        }
+
+        /* Page 2 */
+
+        .secret-card {
+            max-width: 750px;
+            margin: auto;
+            padding: 55px 25px;
+            border-radius: 30px;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 232, 242, 0.95),
+                rgba(237, 226, 255, 0.95)
+            );
+            box-shadow: 0 20px 55px rgba(126, 83, 130, 0.13);
+        }
+
+        .secret-icon {
+            margin-bottom: 20px;
+            font-size: 70px;
+        }
+
+        .secret-card h2 {
+            margin-bottom: 20px;
+            color: #754b7c;
+            font-family: "Caveat", cursive;
+            font-size: clamp(45px, 8vw, 85px);
+            line-height: 0.9;
+        }
+
+        .secret-card p {
+            color: #806d80;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* Page 3 */
+
+        .question-card {
+            max-width: 700px;
+            margin: auto;
+            padding: 50px 25px;
+            border-radius: 28px;
+            background: white;
+            box-shadow: 0 18px 50px rgba(126, 83, 130, 0.13);
+        }
+
+        .question-emoji {
+            margin-bottom: 20px;
+            font-size: 60px;
+        }
+
+        .question-card h2 {
+            margin-bottom: 20px;
+            color: #754b7c;
+            font-family: "Caveat", cursive;
+            font-size: clamp(42px, 7vw, 75px);
+            line-height: 0.95;
+        }
+
+        .question-card p {
+            color: #806d80;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* Page 4 */
+
+        .intro-card {
+            max-width: 800px;
+            margin: auto;
+            padding: 55px 25px;
+            border: 1px solid #f1d6e4;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 50px rgba(126, 83, 130, 0.12);
+        }
+
+        .intro-card .camera {
+            margin-bottom: 20px;
+            font-size: 70px;
+        }
+
+        .intro-card h2 {
+            margin-bottom: 20px;
+            color: #754b7c;
+            font-family: "Caveat", cursive;
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 0.9;
+        }
+
+        .intro-card p {
+            max-width: 650px;
+            margin: auto;
+            color: #806d80;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .mini-memory-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .mini-memory-row span {
+            display: flex;
+            width: 55px;
+            height: 55px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: #fff0f6;
+            font-size: 25px;
+        }
+
+        /* Page 5 - Image gallery */
+
+        .gallery-heading {
+            margin-bottom: 50px;
+        }
+
+        .gallery-heading h1 {
+            margin-bottom: 15px;
+            color: #714a7b;
+            font-family: "Caveat", cursive;
+            font-size: clamp(52px, 9vw, 100px);
+            line-height: 0.9;
+        }
+
+        .gallery-heading h2 {
+            margin-bottom: 18px;
+            color: #d0789e;
+            font-family: "Caveat", cursive;
+            font-size: clamp(30px, 6vw, 55px);
+        }
+
+        .gallery-heading p {
+            max-width: 650px;
+            margin: auto;
+            color: #806d80;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 32px;
+            align-items: start;
+        }
+
+        .memory-card {
+            position: relative;
+            padding: 13px 13px 23px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 15px 38px rgba(121, 76, 119, 0.16);
+            transition: 0.4s ease;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-10px) rotate(0deg) !important;
+            box-shadow: 0 22px 50px rgba(121, 76, 119, 0.24);
+        }
+
+        .memory-card::before {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            top: -15px;
+            left: 50%;
+            width: 82px;
+            height: 24px;
+            background: rgba(235, 174, 196, 0.8);
+            transform: translateX(-50%) rotate(-5deg);
+        }
+
+        .memory-image-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 5px;
+            background: #f0eaf2;
+        }
+
+        .memory-image-container img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .memory-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .image-number {
+            position: absolute;
+            z-index: 3;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            width: 36px;
+            height: 36px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: #a25b84;
+            background: rgba(255, 255, 255, 0.94);
+            font-family: "Caveat", cursive;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .memory-text {
+            padding: 16px 5px 0;
+            text-align: center;
+        }
+
+        .memory-text .memory-emoji {
+            margin-bottom: 5px;
+            font-size: 23px;
+        }
+
+        .memory-text h3 {
+            margin-bottom: 10px;
+            color: #875485;
+            font-family: "Caveat", cursive;
+            font-size: 34px;
+            line-height: 1;
+        }
+
+        .memory-text p {
+            color: #786b79;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .memory-text .small-note {
+            margin-top: 10px;
+            color: #c16b91;
+            font-family: "Caveat", cursive;
+            font-size: 23px;
+        }
+
+        .sticker {
+            position: absolute;
+            z-index: 5;
+            top: -27px;
+            right: -20px;
+            display: flex;
+            width: 80px;
+            height: 80px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: #804d78;
+            background: linear-gradient(135deg, #f8c5d9, #e9b6d2);
+            font-family: "Caveat", cursive;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            transform: rotate(12deg);
+        }
+
+        .purple-sticker {
+            background: linear-gradient(135deg, #e2d1fa, #d5bce9);
+        }
+
+        /* Gallery card positioning */
+
+        .card-one {
+            grid-column: span 7;
+            transform: rotate(-2deg);
+        }
+
+        .card-one .memory-image-container {
+            height: 440px;
+        }
+
+        .card-two {
+            grid-column: span 5;
+            margin-top: 55px;
+            transform: rotate(3deg);
+        }
+
+        .card-two .memory-image-container {
+            height: 410px;
+            background: #211d27;
+        }
+
+        .card-two img {
+            object-fit: contain;
+        }
+
+        .card-three {
+            grid-column: span 5;
+            margin-top: 20px;
+            transform: rotate(-3deg);
+        }
+
+        .card-three .memory-image-container {
+            height: 440px;
+        }
+
+        .card-four {
+            grid-column: span 7;
+            margin-top: 55px;
+            transform: rotate(2deg);
+        }
+
+        .card-four .memory-image-container {
+            height: 510px;
+        }
+
+        .card-five {
+            grid-column: span 6;
+            margin-top: 35px;
+            transform: rotate(-2deg);
+        }
+
+        .card-five .memory-image-container {
+            height: 510px;
+        }
+
+        .card-six {
+            grid-column: span 6;
+            margin-top: 70px;
+            transform: rotate(2deg);
+        }
+
+        .card-six .memory-image-container {
+            height: 510px;
+        }
+
+        /* Page 6 - Reasons */
+
+        .reasons-card {
+            max-width: 850px;
+            margin: auto;
+            padding: 50px 25px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.84);
+            box-shadow: 0 20px 55px rgba(126, 83, 130, 0.12);
+        }
+
+        .reasons-card h1 {
+            margin-bottom: 30px;
+            color: #754b7c;
+            font-family: "Caveat", cursive;
+            font-size: clamp(50px, 8vw, 90px);
+            line-height: 0.9;
+        }
+
+        .reason-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 17px;
+            text-align: left;
+        }
+
+        .reason-box {
+            padding: 20px;
+            border-radius: 16px;
+            color: #765c75;
+            background: #fff1f7;
+            font-size: 13px;
+            line-height: 1.8;
+            transition: 0.3s ease;
+        }
+
+        .reason-box:hover {
+            transform: translateY(-5px);
+            background: #fbe0ed;
+        }
+
+        .reason-box span {
+            margin-right: 8px;
+            font-size: 23px;
+        }
+
+        /* Page 7 - Birthday */
+
+        .birthday-card {
+            max-width: 900px;
+            margin: auto;
+            padding: 65px 25px;
+            border-radius: 38px;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 218, 234, 0.96),
+                rgba(232, 218, 255, 0.96)
+            );
+            box-shadow: 0 25px 65px rgba(126, 83, 130, 0.16);
+        }
+
+        .birthday-cake {
+            margin-bottom: 20px;
+            font-size: 75px;
+            animation: cakeMove 2s ease-in-out infinite;
+        }
+
+        @keyframes cakeMove {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .birthday-card h1 {
+            color: #75487e;
+            font-family: "Caveat", cursive;
+            font-size: clamp(70px, 13vw, 150px);
+            line-height: 0.75;
+        }
+
+        .birthday-card h2 {
+            margin-top: 25px;
+            color: #d06e99;
+            font-family: "Caveat", cursive;
+            font-size: clamp(45px, 8vw, 85px);
+            line-height: 0.9;
+        }
+
+        .birthday-card p {
+            max-width: 650px;
+            margin: 30px auto 0;
+            color: #786477;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .birthday-stars {
+            margin-top: 25px;
+            font-size: 30px;
+            letter-spacing: 8px;
+        }
+
+        /* Page 8 - Final Letter */
+
+        .final-letter-card {
+            width: 100%;
+            max-width: 850px;
+            margin: auto;
+            padding: 55px 45px;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+
+            background:
+                linear-gradient(
+                    rgba(255, 253, 247, 0.98),
+                    rgba(255, 248, 252, 0.98)
+                ),
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent 0px,
+                    transparent 34px,
+                    #efd9e5 35px
+                );
+
+            border: 1px solid #f0d4e2;
+            border-radius: 15px;
+
+            box-shadow:
+                0 22px 65px rgba(126, 83, 130, 0.18),
+                0 5px 15px rgba(126, 83, 130, 0.08);
+
+            transform: rotate(-0.4deg);
+        }
+
+        .final-letter-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 35px;
+            width: 3px;
+            background: #f2bfd5;
+            opacity: 0.8;
+        }
+
+        .letter-heart {
+            position: absolute;
+            top: 18px;
+            right: 30px;
+            font-size: 55px;
+            animation: letterHeart 2s ease-in-out infinite;
+        }
+
+        @keyframes letterHeart {
+            0%, 100% {
+                transform: rotate(12deg) scale(1);
+            }
+
+            50% {
+                transform: rotate(-5deg) scale(1.1);
+            }
+        }
+
+        .final-letter-card .tiny-title {
+            margin-left: 20px;
+            padding-right: 45px;
+        }
+
+        .final-letter-card h1 {
+            margin: 10px 0 20px 20px;
+            color: #754b7c;
+            font-family: "Caveat", cursive;
+            font-size: clamp(55px, 9vw, 100px);
+            line-height: 0.9;
+        }
+
+        .letter-divider {
+            width: 95%;
+            height: 2px;
+            margin: 10px 0 28px 20px;
+            background: linear-gradient(
+                to right,
+                #e7a9c4,
+                transparent
+            );
+        }
+
+        .final-letter-card h2 {
+            margin: 0 0 25px 20px;
+            color: #c56d96;
+            font-family: "Caveat", cursive;
+            font-size: clamp(40px, 7vw, 65px);
+            line-height: 1;
+        }
+
+        .final-letter-card p {
+            margin: 0 0 18px 20px;
+            color: #65566a;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .final-highlight {
+            margin-top: 28px !important;
+            padding: 18px 20px;
+            border-left: 4px solid #c8759c;
+            border-radius: 8px;
+            color: #9c5980 !important;
+            background: rgba(255, 220, 236, 0.7);
+            font-family: "Caveat", cursive;
+            font-size: 28px !important;
+            line-height: 1.4 !important;
+        }
+
+        .final-signature {
+            margin: 30px 0 0 20px;
+            color: #b9618b;
+            font-family: "Caveat", cursive;
+            font-size: 35px;
+            line-height: 1.15;
+            text-align: right;
+        }
+
+        .final-note {
+            margin: 30px 0 0 20px;
+            color: #805080;
+            font-family: "Caveat", cursive;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .final-letter-card .button-area {
+            text-align: center;
+        }
+
+        /* Image popup */
+
+        .image-popup {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            inset: 0;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: rgba(25, 17, 30, 0.95);
+        }
+
+        .image-popup.show {
+            display: flex;
+        }
+
+        .image-popup img {
+            max-width: 95%;
+            max-height: 88vh;
+            object-fit: contain;
+            border-radius: 8px;
+            animation: popupOpen 0.3s ease;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 8px;
+            right: 25px;
+            color: white;
+            font-size: 45px;
+            cursor: pointer;
+        }
+
+        @keyframes popupOpen {
+            from {
+                opacity: 0;
+                transform: scale(0.75);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Page dots */
+
+        .page-indicator {
+            position: fixed;
+            z-index: 20;
+            bottom: 17px;
+            left: 50%;
+            display: flex;
+            gap: 7px;
+            transform: translateX(-50%);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e1bdd0;
+            transition: 0.3s ease;
+        }
+
+        .dot.active {
+            width: 25px;
+            border-radius: 10px;
+            background: #b96d94;
+        }
+
+        /* Mobile responsive */
+
+        @media (max-width: 768px) {
+
+            .page {
+                padding: 30px 12px 80px;
+                align-items: flex-start !important;
+            }
+
+            .page-content {
+                margin-top: 25px;
+            }
+
+            .welcome-card,
+            .secret-card,
+            .question-card,
+            .intro-card,
+            .reasons-card,
+            .birthday-card {
+                padding: 42px 18px;
+            }
+
+            .gallery-heading {
+                margin-bottom: 45px;
+            }
+
+            .gallery-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .memory-card {
+                width: 95%;
+                margin: 0 !important;
+                transform: rotate(0deg) !important;
+            }
+
+            .memory-card:hover {
+                transform: translateY(-5px) !important;
+            }
+
+            .memory-image-container {
+                height: auto !important;
+                max-height: none !important;
+            }
+
+            .memory-image-container img {
+                width: 100%;
+                height: auto;
+                max-height: 680px;
+                object-fit: contain;
+            }
+
+            .card-two .memory-image-container {
+                background: #211d27;
+            }
+
+            .sticker {
+                width: 70px;
+                height: 70px;
+                right: -10px;
+                top: -24px;
+                font-size: 17px;
+            }
+
+            .reason-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .final-letter-card {
+                padding: 42px 20px 38px 30px;
+                transform: none;
+            }
+
+            .final-letter-card::before {
+                left: 17px;
+            }
+
+            .letter-heart {
+                top: 14px;
+                right: 13px;
+                font-size: 35px;
+            }
+
+            .final-letter-card .tiny-title {
+                margin-left: 5px;
+                padding-right: 35px;
+                letter-spacing: 2px;
+            }
+
+            .final-letter-card h1 {
+                margin-left: 5px;
+                font-size: 58px;
+            }
+
+            .letter-divider {
+                margin-left: 5px;
+            }
+
+            .final-letter-card h2 {
+                margin-left: 5px;
+                font-size: 45px;
+            }
+
+            .final-letter-card p {
+                margin-left: 5px;
+                font-size: 13px;
+                line-height: 1.9;
+            }
+
+            .final-highlight {
+                margin-left: 5px !important;
+                font-size: 24px !important;
+            }
+
+            .final-signature {
+                margin-left: 5px;
+                font-size: 29px;
+            }
+
+            .final-note {
+                margin-left: 5px;
+                font-size: 25px;
+            }
+
+            .close-popup {
+                top: 5px;
+                right: 15px;
+            }
+
+            .page-indicator {
+                bottom: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================================================= -->
+    <!-- BACKGROUND AUDIO - ADDED ONLY -->
+    <!-- ================================================= -->
+
+    <audio id="bgMusic" loop>
+        <source src="c:\Users\brain\Downloads\oru dheivam thantha poove song.mpeg" type="audio/mpeg">
+    </audio>
+
+
+    <!-- Floating decoration -->
+
+    <div class="floating-heart heart-one">♡</div>
+    <div class="floating-heart heart-two">♥</div>
+    <div class="floating-heart heart-three">♡</div>
+    <div class="floating-heart heart-four">♥</div>
+
+
+    <!-- ================================================= -->
+    <!-- PAGE 1 - WELCOME -->
+    <!-- ================================================= -->
+
+    <section class="page active" id="page1">
+
+        <div class="page-content">
+
+            <div class="welcome-card">
+
+                <div class="gift-icon">🎁</div>
+
+                <div class="tiny-title">
+                    A little surprise for you
+                </div>
+
+                <h1 class="main-title">
+                    Hey You... 💗
+                </h1>
+
+                <h2 class="sub-title">
+                    Something special is waiting
+                </h2>
+
+                <p class="description">
+                    This is not an ordinary webpage.
+                    This is a small journey filled with
+                    memories, feelings, smiles and surprises
+                    made especially for you.
+                </p>
+
+                <div class="button-area">
+                    <button class="next-button" onclick="nextPage()">
+                        Open The Surprise ✨
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PAGE 2 - SECRET -->
+    <!-- ================================================= -->
+
+    <section class="page" id="page2">
+
+        <div class="page-content">
+
+            <div class="secret-card">
+
+                <div class="secret-icon">
+                    🤫💌
+                </div>
+
+                <div class="tiny-title">
+                    A small secret
+                </div>
+
+                <h2>
+                    This page is<br>
+                    only for you
+                </h2>
+
+                <p>
+                    There are some people who make our
+                    ordinary days feel extraordinary.
+                    This surprise is for one such person.
+                </p>
+
+                <p style="margin-top: 15px;">
+                    But wait... the surprise is not revealed yet.
+                    You have to continue to the next page. 👀
+                </p>
+
+                <div class="button-area">
+
+                    <button class="back-button" onclick="previousPage()">
+                        ← Back
+                    </button>
+
+                    <button class="next-button" onclick="nextPage()">
+                        Continue 🤍
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PAGE 3 - READY QUESTION -->
+    <!-- ================================================= -->
+
+    <section class="page" id="page3">
+
+        <div class="page-content">
+
+            <div class="question-card">
+
+                <div class="question-emoji">
+                    👀✨
+                </div>
+
+                <div class="tiny-title">
+                    Before we continue
+                </div>
+
+                <h2>
+                    Are you ready<br>
+                    for the surprise?
+                </h2>
+
+                <p>
+                    No skipping, okay?
+                    Every page has a little piece of love,
+                    a memory or a reason to smile.
+                </p>
+
+                <div class="button-area">
+
+                    <button class="back-button" onclick="previousPage()">
+                        ← Back
+                    </button>
+
+                    <button class="next-button" onclick="nextPage()">
+                        Yes, I Am Ready 💗
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PAGE 4 - MEMORY INTRO -->
+    <!-- ================================================= -->
+
+    <section class="page" id="page4">
+
+        <div class="page-content">
+
+            <div class="intro-card">
+
+                <div class="camera">
+                    📸
+                </div>
+
+                <div class="tiny-title">
+                    A few moments
+                </div>
+
+                <h2>
+                    Memories<br>
+                    are waiting
+                </h2>
+
+                <p>
+                    Pictures may look like simple images,
+                    but every picture holds a moment,
+                    a feeling, a smile and a story.
+                </p>
+
+                <p style="margin-top: 15px;">
+                    Here are some little memories
+                    that deserve a special place. 🤍
+                </p>
+
+                <div class="mini-memory-row">
+                    <span>🌸</span>
+                    <span>🫂</span>
+                    <span>💌</span>
+                    <span>✨</span>
+                    <span>📷</span>
+                </div>
+
+                <div class="button-area">
+
+                    <button class="back-button" onclick="previousPage()">
+                        ← Back
+                    </button>
+
+                    <button class="next-button" onclick="nextPage()">
+                        Open Memories 📸
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PAGE 5 - SIX IMAGES WITH WORDS -->
+    <!-- ================================================= -->
+
+    <section class="page" id="page5">
+
+        <div class="page-content">
+
+            <div class="gallery-heading">
+
+                <div class="tiny-title">
+                    Little moments, big memories
+                </div>
+
+                <h1>
+                    Beautiful Memories
+                </h1>
+
+                <h2>
+                    of a beautiful soul ♡
+                </h2>
+
+                <p>
+                    Every picture has a story.
+                    Every smile has a memory.
+                    And every memory becomes special
+                    because of you.
+                </p>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+                <!-- IMAGE 1 -->
+
+                <article class="memory-card card-one">
+
+                    <div class="image-number">
+                        01
+                    </div>
+
+                    <div class="memory-image-container">
+                        <img
+                            src="c:\Users\brain\Downloads\image 1.jpeg"
+                            alt="First beautiful memory"
+                            class="memory-image"
+                        >
+                    </div>
+
+                    <div class="memory-text">
+
+                        <div class="memory-emoji">
+                            🫶🏻
+                        </div>
+
+                        <h3>
+                            My Favourite Smile
+                        </h3>
+
+                        <p>
+                            Some smiles are not just beautiful;
+                            they make the whole moment beautiful.
+                            This is one of those memories
+                            worth keeping forever.
+                        </p>
+
+                        <div class="small-note">
+                            A smile worth remembering ♡
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- IMAGE 2 -->
+
+                <article class="memory-card card-two">
+
+                    <div class="sticker">
+                        Our<br>
+                        Chats 💌
+                    </div>
+
+                    <div class="image-number">
+                        02
+                    </div>
+
+                    <div class="memory-image-container">
+                        <img
+                            src="c:\Users\brain\Downloads\image 2.jpeg"
+                            alt="Heartfelt message memory"
+                            class="memory-image"
+                        >
+                    </div>
+
+                    <div class="memory-text">
+
+                        <div class="memory-emoji">
+                            💬
+                        </div>
+
+                        <h3>
+                            Words From The Heart
+                        </h3>
+
+                        <p>
+                            Some feelings cannot be explained
+                            through ordinary words.
+                            This little message is a reminder
+                            of how special you are.
+                        </p>
+
+                        <div class="small-note">
+                            More than just words ✨
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- IMAGE 3 -->
+
+                <article class="memory-card card-three">
+
+                    <div class="image-number">
+                        03
+                    </div>
+
+                    <div class="memory-image-container">
+                        <img
+                            src="c:\Users\brain\Downloads\image 5.jpeg"
+                            alt="Cute conversation memory"
+                            class="memory-image"
+                        >
+                    </div>
+
+                    <div class="memory-text">
+
+                        <div class="memory-emoji">
+                            🥹💗
+                        </div>
+
+                        <h3>
+                            Our Little Conversations
+                        </h3>
+
+                        <p>
+                            cute reactions and endless
+                            conversations.
+                            Every chat has its own magic.
+                        </p>
+
+                        <div class="small-note">
+                            My favourite chat partner 💌
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- IMAGE 4 -->
+
+                <article class="memory-card card-four">
+
+                    <div class="sticker purple-sticker">
+                        Cutie<br>
+                        Pie 💗
+                    </div>
+
+                    <div class="image-number">
+                        04
+                    </div>
+
+                    <div class="memory-image-container">
+                        <img
+                            src="c:\Users\brain\Downloads\image 3.jpeg"
+                            alt="Beautiful pink dress memory"
+                            class="memory-image"
+                        >
+                    </div>
+
+                    <div class="memory-text">
+
+                        <div class="memory-emoji">
+                            🎓🌸
+                        </div>
+
+                        <h3>
+                            My beautiful Gurllll
+                        </h3>
+
+                        <p>
+                            Smart, kind, and caring.
+                            You have a special way of making
+                            ordinary school days memorable.
+                        </p>
+
+                        <div class="small-note">
+                            Grace and kindness ♡
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- IMAGE 5 -->
+
+                <article class="memory-card card-five">
+
+                    <div class="image-number">
+                        05
+                    </div>
+
+                    <div class="memory-image-container">
+                        <img
+                            src="c:\Users\brain\Downloads\image 4.jpeg"
+                            alt="Beautiful outdoor memory"
+                            class="memory-image"
+                        >
+                    </div>
+
+                    <div class="memory-text">
+
+                        <div class="memory-emoji">
+                            🌿✨
+                        </div>
+
+                        <h3>
+                            Just You Being You
+                        </h3>
+
+                        <p>
+                            Your innocence, your smile,
+                            your cute expressions and your
+                            kindness make you truly special.
+                        </p>
+
+                        <div class="small-note">
+                            Simply unforgettable ♡
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- IMAGE 6 -->
+
+                <article class="memory-card card-six">
+
+                    <div class="image-number">
+                        06
+                    </div>
+
+                    <div class="memory-image-container">
+                        <img
+                            src="c:\Users\brain\Downloads\image 6.jpeg"
+                            alt="Special final memory"
+                            class="memory-image"
+                        >
+                    </div>
+
+                    <div class="memory-text">
+
+                        <div class="memory-emoji">
+                            🤍🫂
+                        </div>
+
+                        <h3>
+                            A Memory To Keep
+                        </h3>
+
+                        <p>
+                            A little picture,
+                            a beautiful moment,
+                            and a memory that deserves
+                            a permanent place in the heart.
+                        </p>
+
+                        <div class="small-note">
+                            A lot of love in one memory 💗
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div class="button-area">
+
+                <button class="back-button" onclick="previousPage()">
+                    ← Back
+                </button>
+
+                <button class="next-button" onclick="nextPage()">
+                    One More Surprise ✨
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PAGE 6 - WHY SPECIAL -->
+    <!-- ================================================= -->
+
+    <section class="page" id="page6">
+
+        <div class="page-content">
+
+            <div class="reasons-card">
+
+                <div class="tiny-title">
+                    Little reasons
+                </div>
+
+                <h1>
+                    Why You Are Special 💗
+                </h1>
+
+                <div class="reason-grid">
+
+                    <div class="reason-box">
+                        <span>🌸</span>
+                        Your smile can make even a normal day better.
+                    </div>
+
+                    <div class="reason-box">
+                        <span>🫂</span>
+                        You make people feel comfortable and cared for.
+                    </div>
+
+                    <div class="reason-box">
+                        <span>✨</span>
+                        Your little efforts mean more than you know.
+                    </div>
+
+                    <div class="reason-box">
+                        <span>💌</span>
+                        Your words stay in the heart for a long time.
+                    </div>
+
+                    <div class="reason-box">
+                        <span>🥹</span>
+                        You are cute even when you do not realise it.
+                    </div>
+
+                    <div class="reason-box">
+                        <span>🤍</span>
+                        You are simply irreplaceable.
+                    </div>
+
+                    <div class="reason-box">
+                        <span>🌷</span>
+                        Your presence makes ordinary moments memorable.
+                    </div>
+
+                    <div class="reason-box">
+                        <span>💎</span>
+                        You are one of the rarest and most precious people.
+                    </div>
+
+                </div>
+
+                <div class="button-area">
+
+                    <button class="back-button" onclick="previousPage()">
+                        ← Back
+                    </button>
+
+                    <button class="next-button" onclick="nextPage()">
+                        The Big Reveal 🎂
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PAGE 7 - HAPPY BIRTHDAY -->
+    <!-- ================================================= -->
+
+    <section class="page" id="page7">
+
+        <div class="page-content">
+
+            <div class="birthday-card">
+
+                <div class="birthday-cake">
+                    🎂
+                </div>
+
+                <div class="tiny-title">
+                    The secret is finally revealed
+                </div>
+
+                <h1>
+                    Happy
+                </h1>
+
+                <h2>
+                    Birthday My Gurll!!🪄🥰😽💎
+                </h2>
+
+                <p>
+                    May your life be filled with endless happiness,
+                    beautiful memories, peaceful moments and
+                    all the love you deserve.
+                </p>
+
+                <div class="birthday-stars">
+                    ✨ 💗 ✨
+                </div>
+
+                <div class="button-area">
+
+                    <button class="back-button" onclick="previousPage()">
+                        ← Back
+                    </button>
+
+                    <button class="next-button" onclick="nextPage()">
+                        Read One Last Letter 💌
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PAGE 8 - FINAL LONG LETTER -->
+    <!-- ================================================= -->
+
+    <section class="page" id="page8">
+
+        <div class="page-content">
+
+            <div class="final-letter-card">
+
+                <div class="letter-heart">
+                    💌
+                </div>
+
+                <div class="tiny-title">
+                    One last thing I want to say
+                </div>
+
+                <h1>
+                    A Letter For You
+                </h1>
+
+                <div class="letter-divider"></div>
+
+                <h2>
+                    Heyyyy My Gurl!!!... 🐱💗
+                </h2>
+
+                <p>
+                    Unaku naa epdi explain panrathunu therila...
+                    Enaku unna evlo pudikumnu solla words-e illa.
+                    Dictionary-la thedinalum kedaikatha alavukku
+                    nee enaku special.
+                </p>
+
+                <p>
+                    Namma pesura small small conversations,
+                    silly messages, cute reactions,
+                    and those unforgettable moments ellame
+                    enaku romba precious.
+                </p>
+
+                <p>
+                    Sometimes naa correct-ah express panna maaten.
+                    But athunaala care illa nu nenachikaadha.
+                    Nee en life-la romba important person.
+                </p>
+
+                <p>
+                    Un kooda irukkura every moment-um,
+                    un kooda pesura every conversation-um,
+                    enaku oru beautiful memory.
+                    Namma bond eppavume ippadiye irukkanum.
+                </p>
+
+                <p>
+                    Thank you for coming into my life.
+                    Thank you for your care, your love,
+                    your efforts, your patience and
+                    for making my ordinary days special.
+                </p>
+
+                <p>
+                    You are my diamond 💎,
+                    my gurl 🪄🥰😽,
+                    my sunshine ☀️,
+                    my soulmate 🫂,
+                    and my forever favourite person🤍
+                </p>
+
+                <p>
+                    I wish you endless happiness,
+                    success, peace, good health,
+                    beautiful memories and everything
+                    your heart truly deserves.
+                </p>
+
+                <p class="final-highlight">
+                    No matter how much time passes,
+                    you will always have a special place
+                    in my heart. 🥹💗
+                </p>
+
+                <div class="final-signature">
+                    With lots and lots of love,<br>
+                    VARREEEHHHHHHHH!!!!....🫂💗
+                </div>
+
+                <div class="final-note">
+                    Once again... Happy Birthday, Cutie! 🎂✨
+                </div>
+
+                <div class="button-area">
+
+                    <button class="back-button" onclick="previousPage()">
+                        ← Back
+                    </button>
+
+                    <button class="next-button" onclick="restartSurprise()">
+                        Replay From Beginning ↻
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- PAGE INDICATORS -->
+    <!-- ================================================= -->
+
+    <div class="page-indicator">
+
+        <div class="dot active" id="dot1"></div>
+        <div class="dot" id="dot2"></div>
+        <div class="dot" id="dot3"></div>
+        <div class="dot" id="dot4"></div>
+        <div class="dot" id="dot5"></div>
+        <div class="dot" id="dot6"></div>
+        <div class="dot" id="dot7"></div>
+        <div class="dot" id="dot8"></div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- IMAGE POPUP -->
+    <!-- ================================================= -->
+
+    <div class="image-popup" id="imagePopup">
+
+        <span class="close-popup" id="closePopup">
+            &times;
+        </span>
+
+        <img
+            id="popupImage"
+            src=""
+            alt="Full size memory"
+        >
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ================================================= -->
+
+    <script>
+
+        let currentPage = 1;
+        const totalPages = 8;
+
+        /* ================================================= */
+        /* BACKGROUND AUDIO - ADDED ONLY */
+        /* ================================================= */
+
+        const bgMusic = document.getElementById("bgMusic");
+
+        bgMusic.volume = 0.5;
+
+
+        function startMusic() {
+
+            bgMusic.play().catch(function(error) {
+                console.log("Audio could not start:", error);
+            });
+
+        }
+
+
+        function showPage(pageNumber) {
+
+            for (let i = 1; i <= totalPages; i++) {
+
+                const page = document.getElementById("page" + i);
+                const dot = document.getElementById("dot" + i);
+
+                page.classList.remove("active");
+                dot.classList.remove("active");
+
+            }
+
+            const selectedPage = document.getElementById("page" + pageNumber);
+            const selectedDot = document.getElementById("dot" + pageNumber);
+
+            selectedPage.classList.add("active");
+            selectedDot.classList.add("active");
+
+            currentPage = pageNumber;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function nextPage() {
+
+            /* Audio starts when first button is clicked */
+            if (currentPage === 1) {
+                startMusic();
+            }
+
+            if (currentPage < totalPages) {
+                showPage(currentPage + 1);
+            }
+
+        }
+
+
+        function previousPage() {
+
+            if (currentPage > 1) {
+                showPage(currentPage - 1);
+            }
+
+        }
+
+
+        function restartSurprise() {
+            showPage(1);
+        }
+
+
+        /* Image popup functionality */
+
+        const memoryImages = document.querySelectorAll(".memory-image");
+        const imagePopup = document.getElementById("imagePopup");
+        const popupImage = document.getElementById("popupImage");
+        const closePopup = document.getElementById("closePopup");
+
+
+        memoryImages.forEach(function(image) {
+
+            image.addEventListener("click", function() {
+
+                popupImage.src = image.src;
+                popupImage.alt = image.alt;
+
+                imagePopup.classList.add("show");
+
+                document.body.style.overflow = "hidden";
+
+            });
+
+        });
+
+
+        function closeImagePopup() {
+
+            imagePopup.classList.remove("show");
+
+            document.body.style.overflow = "auto";
+
+        }
+
+
+        closePopup.addEventListener("click", closeImagePopup);
+
+
+        imagePopup.addEventListener("click", function(event) {
+
+            if (event.target === imagePopup) {
+                closeImagePopup();
+            }
+
+        });
+
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                closeImagePopup();
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
